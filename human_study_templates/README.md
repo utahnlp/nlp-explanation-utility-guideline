@@ -1,0 +1,2 @@
+## Qualification Exam (Section D.3):
+https://utah.sjc1.qualtrics.com/jfe/form/SV_6JTN9yYkTkDoFMO
