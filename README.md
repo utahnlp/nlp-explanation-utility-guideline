@@ -14,7 +14,9 @@ pip3 install -r requirements.txt
 ## Developing Models for Tasks
 To finetune Flan-T5-3B on ContractNLI, SciFact-Open, ILDC, and EvidenceInference-v2 datasets:
 ```
-cd model_development
+cd model_development/data
+sh download_data.sh
+cd ..
 sh run_ft.sh <dataset_name> -> [scifact-open, contract-nli, evidenceinference, ildc]  <batch_size>  <epoch>  <learning_rate>  <save_dir> 
 ```
 Other than `dataset_name`, the rest of the arguments are optionsl. Example:
