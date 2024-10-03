@@ -12,9 +12,14 @@ pip3 install -r requirements.txt
 ```
 
 ## Developing Models for Tasks
-Run the following command to finetune Flan-T5-3B on ContractNLI, SciFact-Open, ILDC, and EvidenceInference-v2 datasets:
+To finetune Flan-T5-3B on ContractNLI, SciFact-Open, ILDC, and EvidenceInference-v2 datasets:
 ```
-
+cd model_development
+sh run_ft.sh <dataset_name> -> [scifact-open, contract-nli, evidenceinference, ildc]  <batch_size>  <epoch>  <learning_rate>  <save_dir> 
+```
+Other than , the rest of the arguments are optionsl. Exampl:
+```
+sh run.sh scifact-open 4 5 0.001 ./ftmodels
 ```
 
 ## Developing Deferral Model
