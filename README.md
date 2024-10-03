@@ -27,5 +27,5 @@ Prompts for zero-shot and few-shot learning with GPT-4 are provided in the [defe
 ## Human Study Templates
 You can find Qualtrics templates for different studies under the [human_study_templates](./human_study_templates) directory. These templates can help replicate the human studies according to our guidelines.
 
-To quickly review the format of the human studies, follow the links provided in the [human_study_templates](./human_study_templates/README.md) directory.
+To quickly view the format of the human studies, follow the links provided in the [human_study_templates](./human_study_templates/README.md) directory.
 
