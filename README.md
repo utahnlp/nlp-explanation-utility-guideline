@@ -17,17 +17,18 @@ To finetune Flan-T5-3B on ContractNLI, SciFact-Open, ILDC, and EvidenceInference
 cd model_development
 sh run_ft.sh <dataset_name> -> [scifact-open, contract-nli, evidenceinference, ildc]  <batch_size>  <epoch>  <learning_rate>  <save_dir> 
 ```
-Other than , the rest of the arguments are optionsl. Exampl:
+Other than `dataset_name`, the rest of the arguments are optionsl. Example:
 ```
-sh run.sh scifact-open 4 5 0.001 ./ftmodels
+sh run_ft.sh scifact-open 2 10 0.00005 ./ftmodels/scifact_open/
 ```
 
 ## Developing Deferral Model
 Run the following command to finetune Llama-2-13B on the deferral task:
 ```
-
+cd deferral
+sh run_def.sh
 ```
-Prompts for zero-shot and few-shot learning with GPT-4 are provided in the [deferral_model](./deferral_model) directory.
+Prompts for zero-shot and few-shot learning with GPT-4 are provided in the [deferral_model](./deferral) directory.
 
 ## Human Study Templates
 You can find Qualtrics templates for different studies under the [human_study_templates](./human_study_templates) directory. These templates can help replicate the human studies according to our guidelines.
