@@ -18,9 +18,9 @@ def retrieving(query, bm25, corpus, top_n=3):
     return bm25.get_top_n(tokenized_query, corpus, n=top_n)
 
 
-def run_retrieval(claim_file, bm25_model):
+def run_retrieval(src_dir, claim_file, bm25_model):
 
-    claims = pd.read_json(claim_file, lines=True)
+    claims = pd.read_json(src_dir+claim_file, lines=True)
     claims = list(claims['claim'])
 
     print("--> claim_file:", claim_file)
@@ -35,7 +35,7 @@ def run_retrieval(claim_file, bm25_model):
         if cnt % 30 == 0:
             print(cnt)
 
-    json.dump(ret_data, open('./data/bm25Plus-'+fname+'-top100.json', 'w'), indent="\t")
+    json.dump(ret_data, open(src_dir+'bm25Plus-'+fname+'-top100.json', 'w'), indent="\t")
 
 
 def reranking(src_dir, fname, reranker):
@@ -85,9 +85,9 @@ if __name__ == "__main__":
     bm25 = BM25Plus(tokenized_corpus)
 
     fname = sys.argv[2].lower()
-    claim_file = src+fname+".jsonl"
+    claim_file = fname+".jsonl"
 
-    run_retrieval(claim_file, bm25)
+    run_retrieval(src, claim_file, bm25)
 
     reranker_model = T5ForConditionalGeneration.from_pretrained("castorini/monot5-3b-msmarco-10k", torch_dtype=torch.float16)
 
@@ -95,6 +95,7 @@ if __name__ == "__main__":
     reranker_model.to(device)
 
     # print("MODEL LOADED!", flush=True)
+
 
     reranker = MonoT5(model=reranker_model)
 
